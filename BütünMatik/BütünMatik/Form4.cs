@@ -33,7 +33,7 @@ namespace BütünMatik
         private void Form4_Load(object sender, EventArgs e)
         {
 
-            String SQL = " select name,ürün,marka,fiyat,açıklama from kupon";
+            String SQL = " select name,ürün,marka,fiyat,açıklama,stok from kupon";
 
 
             dataAdapter = new SqlDataAdapter(SQL, conString);
@@ -76,27 +76,41 @@ namespace BütünMatik
 
 
                 int bakiyee = Int32.Parse(dataGridView1.Rows[i].Cells[4].Value.ToString());
-                if (isSelected && customerbakiye > bakiyee )
+                string name = dataGridView1.Rows[i].Cells[1].Value.ToString();
+                string ürün = dataGridView1.Rows[i].Cells[2].Value.ToString();
+                string marka = dataGridView1.Rows[i].Cells[3].Value.ToString();
+                string açıklama = dataGridView1.Rows[i].Cells[5].Value.ToString();
+
+                int stok = Int32.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
+
+                if (isSelected && customerbakiye > bakiyee && stok >0 )
                 {
                     int id = find_id();
-                    
 
+                    Random r = new Random();
 
                     SqlConnection con = new SqlConnection(conString);
                     con.Open();
 
-                    String SQL = "  Update kupon set CustomerID = '"+id.ToString()+"' where id = '"+(i+1)+"'";
+                    String SQL = " insert into kuponalınanlar(name,ürün,ürünkodu,stok,fiyat,satınalan) values ('"+name+"','"+ürün+"','"+r.Next(100,1000)+"', '"+stok+"','"+bakiyee+"','"+id+"')";
                     String updatekupon = "Update UserActivity set kupon = kupon + 1 where id = '"+id+"'";
                     String updatebakiye = "Update UserActivity set bakiye = bakiye - "+ bakiyee+" where id = '"+id+"'";
+                    String Updatestok = "Update kupon set stok = stok -1 where id = '"+(i+1)+"'";
 
                     SqlCommand cmd = new SqlCommand(SQL, con);
                     SqlCommand cmd2 = new SqlCommand(updatekupon, con);
                     SqlCommand cmd3 = new SqlCommand(updatebakiye, con);
+                    SqlCommand cmd4 = new SqlCommand(Updatestok, con);
+
                     cmd.ExecuteNonQuery();
                     cmd2.ExecuteNonQuery();
                     cmd3.ExecuteNonQuery();
+                    cmd4.ExecuteNonQuery();
 
                     MessageBox.Show("ürün Alınmıştır");
+                }if(isSelected && stok <= 0)
+                {
+                    MessageBox.Show("Üründe Stok kalmamıştır.");
                 }
                 
 

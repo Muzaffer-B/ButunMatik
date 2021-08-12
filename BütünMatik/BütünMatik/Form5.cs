@@ -37,7 +37,7 @@ namespace BütünMatik
 
             int id = find_id();
 
-            String SQL = " select name,ürün,marka,fiyat,açıklama from kupon where CustomerID = '"+id+"' ";
+            String SQL = " select name,ürün,ürünkodu,stok,fiyat from kuponalınanlar where satınalan = '"+id+"' ";
 
 
             dataAdapter = new SqlDataAdapter(SQL, conString);
