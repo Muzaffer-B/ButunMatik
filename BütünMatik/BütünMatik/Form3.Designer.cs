@@ -41,6 +41,7 @@ namespace BütünMatik
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
+            this.qrcodebutton = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -169,12 +170,23 @@ namespace BütünMatik
             this.label6.TabIndex = 0;
             this.label6.Text = "Kupon Tarat";
             // 
+            // qrcodebutton
+            // 
+            this.qrcodebutton.Location = new System.Drawing.Point(1151, 681);
+            this.qrcodebutton.Name = "qrcodebutton";
+            this.qrcodebutton.Size = new System.Drawing.Size(116, 36);
+            this.qrcodebutton.TabIndex = 7;
+            this.qrcodebutton.Text = "QR Kod Yarat";
+            this.qrcodebutton.UseVisualStyleBackColor = true;
+            this.qrcodebutton.Click += new System.EventHandler(this.qrcodebutton_Click);
+            // 
             // KullanıcıArayüz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1299, 745);
+            this.Controls.Add(this.qrcodebutton);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -211,5 +223,6 @@ namespace BütünMatik
         private System.Windows.Forms.Label kupon;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button qrcodebutton;
     }
 }

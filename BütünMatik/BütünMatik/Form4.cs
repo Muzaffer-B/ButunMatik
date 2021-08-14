@@ -71,7 +71,7 @@ namespace BütünMatik
 
 
 
-            for (int i =0;i < dataGridView1.Rows.Count -1; i++)
+            for (int i =0;i < dataGridView1.Rows.Count; i++)
             {
                 bool isSelected = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
 
@@ -82,9 +82,10 @@ namespace BütünMatik
                 string marka = dataGridView1.Rows[i].Cells[3].Value.ToString();
                 string açıklama = dataGridView1.Rows[i].Cells[5].Value.ToString();
 
+                
                 int stok = Int32.Parse(dataGridView1.Rows[i].Cells[6].Value.ToString());
 
-                if (isSelected && customerbakiye > bakiyee && stok >0 )
+                if (isSelected && customerbakiye >= bakiyee && stok >0 )
                 {
                     int id = find_id();
 
@@ -109,10 +110,14 @@ namespace BütünMatik
                     cmd4.ExecuteNonQuery();
 
                     MessageBox.Show("ürün Alınmıştır");
-                }if(isSelected && stok <= 0)
+                }
+                
+                
+                if(isSelected && stok <= 0)
                 {
                     MessageBox.Show("Üründe Stok kalmamıştır.");
                 }
+
                 
 
             }

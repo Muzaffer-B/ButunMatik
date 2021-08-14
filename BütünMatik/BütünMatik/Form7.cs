@@ -35,12 +35,17 @@ namespace BütünMatik
             filtercollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
             foreach (FilterInfo filterInfo in filtercollection)
                 cboDevice.Items.Add(filterInfo.Name);
-            cboDevice.SelectedIndex = 0;
-
+            cboDevice.SelectedIndex = 1;
+            //captureDevice = new VideoCaptureDevice(filtercollection[cboDevice.SelectedIndex].MonikerString);
+            //captureDevice.NewFrame += CaptureDevice_NewFrame;
+            //captureDevice.Start();
+            //timer1.Start();
         }
 
         private void Scan_Click(object sender, EventArgs e)
         {
+
+            
             captureDevice = new VideoCaptureDevice(filtercollection[cboDevice.SelectedIndex].MonikerString);
             captureDevice.NewFrame += CaptureDevice_NewFrame;
             captureDevice.Start();
@@ -71,13 +76,56 @@ namespace BütünMatik
                     textBox1.Text = result.ToString();
 
                     string firstid = textBox1.Text;
-                    string id = firstid.Substring(0, 1);
-                    string ürünkodu = firstid.Substring(1, 3);
+
+
+                    var idbuilder = new StringBuilder();
+                    var ürünkodubuilder = new StringBuilder();
+
+
+                    foreach (char c in firstid)
+                    {
+                        if (c != '-' && c!=' ')
+                        {
+
+                            idbuilder.Append(c);
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                    int i = 0;
+
+                    foreach (char c in firstid)
+                    {
+                        if (c == '-')
+                        {
+                            i++;
+                            
+                        }
+                        if(i == 1 && c!= '-')
+                        {
+                            ürünkodubuilder.Append(c);
+                        }
+                    }
+
+                    string newid = idbuilder.ToString();
+                    string newürünkodu = ürünkodubuilder.ToString();
+
+
+
+                  //  MessageBox.Show(newid);
+                    //MessageBox.Show(newürünkodu);
+
+
+                    // string id = firstid.Substring(0, 1);
+                   // string ürünkodu = firstid.Substring(2, 4);
 
                     //string satınalan = find_satınalan(ürünkodu);
                     //string alanid = find_name(Int32.Parse(satınalan));
 
-                    String SQL = " select name,ürün,ürünkodu,stok,fiyat,valid from kuponalınanlar where satınalan = '" + id + "' and ürünkodu= '"+ürünkodu+"' ";
+                    String SQL = " select name,ürün,ürünkodu,stok,fiyat,valid from kuponalınanlar where satınalan = '" + newid + "' and ürünkodu= '"+ newürünkodu + "' ";
 
 
                     dataAdapter = new SqlDataAdapter(SQL, conString);

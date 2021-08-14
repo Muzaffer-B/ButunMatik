@@ -218,17 +218,19 @@ namespace BütünMatik
 
                     string subject = ürün + " " + ürünkodu + " No lu Kupon";
 
+                    PictureBox picture = new PictureBox();
+
                      QRCoder.QRCodeGenerator QG = new QRCoder.QRCodeGenerator();
-                    var mydata = QG.CreateQrCode(id.ToString()+ürünkodu, QRCoder.QRCodeGenerator.ECCLevel.H);
+                    var mydata = QG.CreateQrCode(id.ToString()+"-"+ürünkodu, QRCoder.QRCodeGenerator.ECCLevel.H);
                     var code = new QRCoder.QRCode(mydata);
-                    pictureBox1.Image = code.GetGraphic(50);
+                    picture.Image = code.GetGraphic(50);
                     Image image;
-                    image = pictureBox1.Image;
+                    image = picture.Image;
 
                     if(image!= null)
                     {
-                        image.Save("C:/Users/muzo6/OneDrive/Masaüstü/kuponlar/"+ id+ürünkodu+".jpeg");
-                         savepoint = "C:/Users/muzo6/OneDrive/Masaüstü/kuponlar/" + id + ürünkodu + ".jpeg";
+                        image.Save("C:/Users/muzo6/OneDrive/Masaüstü/kuponlar/"+ id+"-"+ürünkodu+".jpeg");
+                         savepoint = "C:/Users/muzo6/OneDrive/Masaüstü/kuponlar/" + id +"-"+ ürünkodu + ".jpeg";
 
                     }
 

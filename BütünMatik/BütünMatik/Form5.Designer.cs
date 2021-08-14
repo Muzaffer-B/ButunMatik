@@ -30,12 +30,10 @@ namespace BütünMatik
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Seç = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.mail_gönder = new System.Windows.Forms.Button();
             this.send_SMS = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.Seç = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -50,6 +48,13 @@ namespace BütünMatik
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(713, 252);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // Seç
+            // 
+            this.Seç.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Seç.HeaderText = "Seç";
+            this.Seç.Name = "Seç";
+            this.Seç.Width = 32;
             // 
             // mail_gönder
             // 
@@ -73,29 +78,12 @@ namespace BütünMatik
             this.send_SMS.UseVisualStyleBackColor = true;
             this.send_SMS.Click += new System.EventHandler(this.send_SMS_Click);
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(91, 302);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(268, 219);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
-            // 
-            // Seç
-            // 
-            this.Seç.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Seç.HeaderText = "Seç";
-            this.Seç.Name = "Seç";
-            this.Seç.Width = 32;
-            // 
             // kuponlarım
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1009, 545);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.send_SMS);
             this.Controls.Add(this.mail_gönder);
             this.Controls.Add(this.dataGridView1);
@@ -103,7 +91,6 @@ namespace BütünMatik
             this.Text = "Form5";
             this.Load += new System.EventHandler(this.kuponlarım_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -113,7 +100,6 @@ namespace BütünMatik
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button mail_gönder;
         private System.Windows.Forms.Button send_SMS;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Seç;
     }
 }
