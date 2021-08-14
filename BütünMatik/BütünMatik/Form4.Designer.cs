@@ -30,42 +30,49 @@ namespace BütünMatik
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Seç = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.Kupon_al = new System.Windows.Forms.Button();
+            this.Seç = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Seç});
-            this.dataGridView1.Location = new System.Drawing.Point(60, 113);
+            this.dataGridView1.Location = new System.Drawing.Point(13, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1038, 325);
+            this.dataGridView1.Size = new System.Drawing.Size(869, 289);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kupon_sec);
             // 
-            // Seç
-            // 
-            this.Seç.HeaderText = "Seç";
-            this.Seç.Name = "Seç";
-            // 
             // Kupon_al
             // 
-            this.Kupon_al.Location = new System.Drawing.Point(955, 542);
+            this.Kupon_al.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Kupon_al.Location = new System.Drawing.Point(643, 381);
             this.Kupon_al.Name = "Kupon_al";
-            this.Kupon_al.Size = new System.Drawing.Size(143, 46);
+            this.Kupon_al.Size = new System.Drawing.Size(165, 51);
             this.Kupon_al.TabIndex = 1;
             this.Kupon_al.Text = "Kupon Al";
             this.Kupon_al.UseVisualStyleBackColor = true;
             this.Kupon_al.Click += new System.EventHandler(this.Kupon_al_Click);
             // 
+            // Seç
+            // 
+            this.Seç.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Seç.HeaderText = "Seç";
+            this.Seç.MinimumWidth = 10;
+            this.Seç.Name = "Seç";
+            this.Seç.Width = 32;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1228, 740);
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.ClientSize = new System.Drawing.Size(930, 516);
             this.Controls.Add(this.Kupon_al);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form4";
@@ -79,7 +86,7 @@ namespace BütünMatik
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn Seç;
         private System.Windows.Forms.Button Kupon_al;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Seç;
     }
 }

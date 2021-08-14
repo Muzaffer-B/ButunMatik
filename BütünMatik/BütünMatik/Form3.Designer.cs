@@ -39,10 +39,13 @@ namespace BütünMatik
             this.label4 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -57,10 +60,10 @@ namespace BütünMatik
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(237, 40);
+            this.panel1.Location = new System.Drawing.Point(237, 67);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(313, 150);
             this.panel1.TabIndex = 2;
@@ -77,10 +80,10 @@ namespace BütünMatik
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.panel2.Controls.Add(this.kupon);
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(697, 40);
+            this.panel2.Location = new System.Drawing.Point(697, 67);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(317, 150);
             this.panel2.TabIndex = 3;
@@ -90,7 +93,7 @@ namespace BütünMatik
             // 
             this.kupon.AutoSize = true;
             this.kupon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kupon.Location = new System.Drawing.Point(133, 105);
+            this.kupon.Location = new System.Drawing.Point(79, 103);
             this.kupon.Name = "kupon";
             this.kupon.Size = new System.Drawing.Size(51, 20);
             this.kupon.TabIndex = 1;
@@ -108,9 +111,9 @@ namespace BütünMatik
             // 
             // panel3
             // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel3.BackColor = System.Drawing.Color.IndianRed;
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(237, 320);
+            this.panel3.Location = new System.Drawing.Point(237, 344);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(313, 144);
             this.panel3.TabIndex = 4;
@@ -128,12 +131,13 @@ namespace BütünMatik
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(697, 320);
+            this.panel4.Location = new System.Drawing.Point(697, 344);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(317, 144);
             this.panel4.TabIndex = 5;
+            this.panel4.Click += new System.EventHandler(this.Para_Yatır);
             // 
             // label5
             // 
@@ -145,11 +149,33 @@ namespace BütünMatik
             this.label5.TabIndex = 0;
             this.label5.Text = "Para Yatır";
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Location = new System.Drawing.Point(500, 554);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(298, 145);
+            this.panel5.TabIndex = 6;
+            this.panel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseClick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(87, 59);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(130, 25);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Kupon Tarat";
+            // 
             // KullanıcıArayüz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
             this.ClientSize = new System.Drawing.Size(1299, 745);
+            this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -165,6 +191,8 @@ namespace BütünMatik
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -181,5 +209,7 @@ namespace BütünMatik
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label kupon;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label6;
     }
 }

@@ -121,5 +121,19 @@ namespace BütünMatik
             kupon.Show();
             this.Close();
         }
+
+        private void Para_Yatır(object sender, EventArgs e)
+        {
+            Para_Yatır parayatır = new Para_Yatır(Customerıd,_Password);
+            parayatır.Show();
+        }
+
+        
+
+        private void panel5_MouseClick(object sender, MouseEventArgs e)
+        {
+            Form7 scan = new Form7();
+            scan.Show();
+        }
     }
 }

@@ -30,6 +30,7 @@ namespace BütünMatik
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +44,12 @@ namespace BütünMatik
             this.girissiz = new System.Windows.Forms.Button();
             this.Uye_Ol = new System.Windows.Forms.Button();
             this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // button1
@@ -80,7 +87,7 @@ namespace BütünMatik
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(320, 162);
+            this.label2.Location = new System.Drawing.Point(320, 149);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(126, 24);
             this.label2.TabIndex = 3;
@@ -88,14 +95,14 @@ namespace BütünMatik
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(304, 246);
+            this.textBox1.Location = new System.Drawing.Point(304, 223);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(162, 20);
             this.textBox1.TabIndex = 4;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(304, 308);
+            this.textBox2.Location = new System.Drawing.Point(304, 293);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(162, 20);
             this.textBox2.TabIndex = 5;
@@ -103,31 +110,31 @@ namespace BütünMatik
             // kullanıcı_giris
             // 
             this.kullanıcı_giris.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kullanıcı_giris.Location = new System.Drawing.Point(324, 372);
+            this.kullanıcı_giris.Location = new System.Drawing.Point(324, 356);
             this.kullanıcı_giris.Name = "kullanıcı_giris";
             this.kullanıcı_giris.Size = new System.Drawing.Size(105, 34);
             this.kullanıcı_giris.TabIndex = 6;
-            this.kullanıcı_giris.Text = "giriş";
+            this.kullanıcı_giris.Text = "Giriş";
             this.kullanıcı_giris.UseVisualStyleBackColor = true;
             this.kullanıcı_giris.Click += new System.EventHandler(this.kullanıcı_giris_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(175, 249);
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(175, 224);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 16);
+            this.label3.Size = new System.Drawing.Size(86, 18);
             this.label3.TabIndex = 7;
             this.label3.Text = "Kullanıcı Adı";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(175, 311);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(175, 294);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 16);
+            this.label4.Size = new System.Drawing.Size(38, 18);
             this.label4.TabIndex = 8;
             this.label4.Text = "Şifre";
             // 
@@ -152,13 +159,56 @@ namespace BütünMatik
             this.Uye_Ol.UseVisualStyleBackColor = true;
             this.Uye_Ol.Click += new System.EventHandler(this.Uye_Ol_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel1.Location = new System.Drawing.Point(0, 2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(149, 452);
+            this.panel1.TabIndex = 11;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel2.Location = new System.Drawing.Point(644, 2);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(149, 370);
+            this.panel2.TabIndex = 12;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.panel3.Location = new System.Drawing.Point(644, 420);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(149, 34);
+            this.panel3.TabIndex = 13;
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ımageList1.ImageSize = new System.Drawing.Size(16, 16);
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(178, 29);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(442, 78);
+            this.pictureBox1.TabIndex = 14;
+            this.pictureBox1.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.Uye_Ol);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.panel3);
             this.Controls.Add(this.girissiz);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.Uye_Ol);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.kullanıcı_giris);
@@ -172,6 +222,7 @@ namespace BütünMatik
             this.Text = "Form1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -192,6 +243,11 @@ namespace BütünMatik
         private System.Windows.Forms.Button girissiz;
         private System.Windows.Forms.Button Uye_Ol;
         private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

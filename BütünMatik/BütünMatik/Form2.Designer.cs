@@ -92,57 +92,57 @@ namespace BütünMatik
             // Name
             // 
             this.Name.AutoSize = true;
-            this.Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Name.Location = new System.Drawing.Point(162, 43);
             this.Name.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Name.Name = "Name";
-            this.Name.Size = new System.Drawing.Size(51, 20);
+            this.Name.Size = new System.Drawing.Size(31, 20);
             this.Name.TabIndex = 5;
-            this.Name.Text = "Name";
+            this.Name.Text = "Ad";
             // 
             // Surname
             // 
             this.Surname.AutoSize = true;
-            this.Surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Surname.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Surname.Location = new System.Drawing.Point(162, 108);
             this.Surname.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Surname.Name = "Surname";
-            this.Surname.Size = new System.Drawing.Size(74, 20);
+            this.Surname.Size = new System.Drawing.Size(59, 20);
             this.Surname.TabIndex = 6;
-            this.Surname.Text = "Surname";
+            this.Surname.Text = "Soyad";
             // 
             // Number
             // 
             this.Number.AutoSize = true;
-            this.Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Number.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Number.Location = new System.Drawing.Point(162, 197);
             this.Number.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Number.Name = "Number";
-            this.Number.Size = new System.Drawing.Size(65, 20);
+            this.Number.Size = new System.Drawing.Size(71, 20);
             this.Number.TabIndex = 7;
-            this.Number.Text = "Number";
+            this.Number.Text = "Numara";
             // 
             // KullanıcıAdı
             // 
             this.KullanıcıAdı.AutoSize = true;
-            this.KullanıcıAdı.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.KullanıcıAdı.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.KullanıcıAdı.Location = new System.Drawing.Point(160, 288);
             this.KullanıcıAdı.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.KullanıcıAdı.Name = "KullanıcıAdı";
-            this.KullanıcıAdı.Size = new System.Drawing.Size(93, 20);
+            this.KullanıcıAdı.Size = new System.Drawing.Size(106, 20);
             this.KullanıcıAdı.TabIndex = 8;
             this.KullanıcıAdı.Text = "Kullanıcı Adı";
             // 
             // Password
             // 
             this.Password.AutoSize = true;
-            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Password.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Password.Location = new System.Drawing.Point(156, 378);
             this.Password.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Password.Name = "Password";
-            this.Password.Size = new System.Drawing.Size(78, 20);
+            this.Password.Size = new System.Drawing.Size(47, 20);
             this.Password.TabIndex = 9;
-            this.Password.Text = "Password";
+            this.Password.Text = "Şifre";
             // 
             // Uye_Ol
             // 
@@ -167,10 +167,11 @@ namespace BütünMatik
             // Mail
             // 
             this.Mail.AutoSize = true;
+            this.Mail.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Mail.Location = new System.Drawing.Point(166, 478);
             this.Mail.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Mail.Name = "Mail";
-            this.Mail.Size = new System.Drawing.Size(37, 20);
+            this.Mail.Size = new System.Drawing.Size(41, 20);
             this.Mail.TabIndex = 12;
             this.Mail.Text = "Mail";
             // 
@@ -178,7 +179,8 @@ namespace BütünMatik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 692);
+            this.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.ClientSize = new System.Drawing.Size(775, 692);
             this.Controls.Add(this.Mail);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.Uye_Ol);

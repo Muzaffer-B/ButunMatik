@@ -35,6 +35,7 @@ namespace BütünMatik
 
             String SQL = " select name,ürün,marka,fiyat,açıklama,stok from kupon";
 
+            dataGridView1.Dock = DockStyle.Fill;
 
             dataAdapter = new SqlDataAdapter(SQL, conString);
 
@@ -167,6 +168,8 @@ namespace BütünMatik
 
 
         }
+
+       
     }
 
 
