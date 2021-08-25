@@ -21,6 +21,8 @@ namespace BütünMatik
 
         string Customerıd;
         string _Password;
+        private Form activateForm;
+
         public KullanıcıArayüz(String CustomerID,String Password)
         {
             InitializeComponent();
@@ -31,6 +33,8 @@ namespace BütünMatik
 
         private void KullanıcıArayüz_Load(object sender, EventArgs e)
         {
+            this.ControlBox = false;
+
             SqlConnection con = new SqlConnection(conString);
             con.Open();
 
@@ -41,20 +45,20 @@ namespace BütünMatik
 
 
 
-            label1.Text = getBalance();
-            kupon.Text = getKupon();
+            label2.Text = getBalance();
+            //kupon.Text = getKupon();
 
             
 
-            if(Int32.Parse(kupon.Text) == 0)
-            {
-                kupon.Text = "Kuponunuz Bulunmamaktadır";
-            }
-            else
-            {
-                kupon.Text = getKupon();
+            //if(Int32.Parse(kupon.Text) == 0)
+            //{
+            //    kupon.Text = "Kuponunuz Bulunmamaktadır";
+            //}
+            //else
+            //{
+            //    kupon.Text = getKupon();
 
-            }
+            //}
         }
 
         private String getBalance()
@@ -107,35 +111,95 @@ namespace BütünMatik
             return balance;
         }
 
+        private void Bakiye_Click(object sender, EventArgs e)
+        {
+            if(activateForm != null)
+            {
+                activateForm.Close();
+                lbltitle.Text = "Bakiye";
+            }
+        }
+
+        private void coupon_Click(object sender, EventArgs e)
+        {
+           // kuponlarım kupon = new kuponlarım(Customerıd, _Password);
+            OpenChildForm(new kuponlarım(Customerıd, _Password), sender);
+            //kupon.Show();
+            //this.Close();
+        }
+
+        private void couponal_Click(object sender, EventArgs e)
+        {
+            //var kupon_al = new Form4(Customerıd, _Password);
+            OpenChildForm(new Form4(Customerıd, _Password), sender);
+
+            //kupon_al.Show();
+
+            //this.Close();
+        }
+
+        private void ParaYatır_Click(object sender, EventArgs e)
+        {
+            //Para_Yatır parayatır = new Para_Yatır(Customerıd, _Password);
+            OpenChildForm(new Para_Yatır(Customerıd, _Password), sender);
+
+            //parayatır.Show();
+        }
+
+        private void Scan_Click(object sender, EventArgs e)
+        {
+           // Form7 scan = new Form7();
+            OpenChildForm(new Form7(), sender);
+
+            //scan.Show();
+        }
+
+        private void OpenChildForm(Form childform,object btnsender)
+        {
+            if (activateForm != null)
+            {
+                activateForm.Close();
+            }
+            activateForm = childform;
+            childform.TopLevel = false;
+            childform.FormBorderStyle = FormBorderStyle.None;
+            childform.Dock = DockStyle.Fill;
+            this.PanelDesktop.Controls.Add(childform);
+            this.PanelDesktop.Tag = childform;
+            childform.BringToFront();
+            childform.Show();
+            lbltitle.Text = childform.Text;
+        }
+
         private void kupon_al(object sender,EventArgs e)
         {
 
-            var kupon_al = new Form4(Customerıd,_Password);
-            kupon_al.Show();
+            //var kupon_al = new Form4(Customerıd,_Password);
+            //kupon_al.Show();
 
-            this.Close();
+            //this.Close();
 
         }
 
         private void kuponlarım(object sender, EventArgs e)
         {
-            kuponlarım kupon = new kuponlarım(Customerıd, _Password);
-            kupon.Show();
-            this.Close();
+            //kuponlarım kupon = new kuponlarım(Customerıd, _Password);
+            //kupon.Show();
+            //this.Close();
         }
 
         private void Para_Yatır(object sender, EventArgs e)
         {
-            Para_Yatır parayatır = new Para_Yatır(Customerıd,_Password);
-            parayatır.Show();
+            //Para_Yatır parayatır = new Para_Yatır(Customerıd,_Password);
+            //parayatır.Show();
         }
 
         
 
         private void panel5_MouseClick(object sender, MouseEventArgs e)
         {
-            Form7 scan = new Form7();
-            scan.Show();
+            //Form7 scan = new Form7();
+            //scan.Show();
         }
 
 
@@ -203,66 +267,66 @@ namespace BütünMatik
             }
         }
 
-        private void qrcodebutton_Click(object sender, EventArgs e)
-        {
+        //private void qrcodebutton_Click(object sender, EventArgs e)
+        //{
 
-            string hash = gethashcode().Trim();
-
-
-            if (hash == "eklenmemis")
-            {
-                PictureBox picture = new PictureBox();
-                Random r = new Random();
-
-                string savepoint = "";
-                int hashcode = 0;
-
-                     int randomnumber = r.Next(1, 999999999);
-
-                    QRCoder.QRCodeGenerator QG = new QRCoder.QRCodeGenerator();
-                    var mydata = QG.CreateQrCode(randomnumber.ToString(), QRCoder.QRCodeGenerator.ECCLevel.H);
-                    var code = new QRCoder.QRCode(mydata);
-                    picture.Image = code.GetGraphic(50);
-
-                
+        //    string hash = gethashcode().Trim();
 
 
+        //    if (hash == "eklenmemis")
+        //    {
+        //        PictureBox picture = new PictureBox();
+        //        Random r = new Random();
 
-                Image image;
-                image = picture.Image;
+        //        string savepoint = "";
+        //        int hashcode = 0;
 
-                SqlConnection con = new SqlConnection(conString);
-                con.Open();
+        //             int randomnumber = r.Next(1, 999999999);
 
-                bool duplicatecheck = hash_duplicate(randomnumber.ToString());
-                if (con.State == System.Data.ConnectionState.Open && duplicatecheck == true)
-                {
-                    string connection = "Update UserInfo set  hashcode = '"+randomnumber+"' where CustomerID = '"+Customerıd+"' and Password ='"+_Password+"'";
-
-                    SqlCommand cmd = new SqlCommand(connection, con);
-                    cmd.ExecuteNonQuery();
-
-                }
-                else
-                {
-                    qrcodebutton_Click(sender, e);
-                }
-                
+        //            QRCoder.QRCodeGenerator QG = new QRCoder.QRCodeGenerator();
+        //            var mydata = QG.CreateQrCode(randomnumber.ToString(), QRCoder.QRCodeGenerator.ECCLevel.H);
+        //            var code = new QRCoder.QRCode(mydata);
+        //            picture.Image = code.GetGraphic(50);
 
                 
-                if (image != null)
-                {
-                    image.Save("C:/Users/muzo6/OneDrive/Masaüstü/QRCODES/" + hashcode +".jpeg");
-                    savepoint = "C:/Users/muzo6/OneDrive/Masaüstü/QRCODES/" + hashcode + ".jpeg";
 
-                }
-                 Email(savepoint);
-            }
-            else
-            {
-                MessageBox.Show("Zaten QR kodunuz Bulunmaktadır\n\n \t Mailinize bakınız");
-            }
-        }
+
+
+        //        Image image;
+        //        image = picture.Image;
+
+        //        SqlConnection con = new SqlConnection(conString);
+        //        con.Open();
+
+        //        bool duplicatecheck = hash_duplicate(randomnumber.ToString());
+        //        if (con.State == System.Data.ConnectionState.Open && duplicatecheck == true)
+        //        {
+        //            string connection = "Update UserInfo set  hashcode = '"+randomnumber+"' where CustomerID = '"+Customerıd+"' and Password ='"+_Password+"'";
+
+        //            SqlCommand cmd = new SqlCommand(connection, con);
+        //            cmd.ExecuteNonQuery();
+
+        //        }
+        //        else
+        //        {
+        //            qrcodebutton_Click(sender, e);
+        //        }
+                
+
+                
+        //        if (image != null)
+        //        {
+        //            image.Save("C:/Users/muzo6/OneDrive/Masaüstü/QRCODES/" + hashcode +".jpeg");
+        //            savepoint = "C:/Users/muzo6/OneDrive/Masaüstü/QRCODES/" + hashcode + ".jpeg";
+
+        //        }
+        //         Email(savepoint);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("Zaten QR kodunuz Bulunmaktadır\n\n \t Mailinize bakınız");
+        //    }
+        //}
             
             
 
@@ -317,6 +381,73 @@ namespace BütünMatik
             }
 
             return true;
+        }
+
+        private void CreateQRCode_Click(object sender, EventArgs e)
+        {
+            string hash = gethashcode().Trim();
+
+
+            if (hash == "eklenmemis")
+            {
+                PictureBox picture = new PictureBox();
+                Random r = new Random();
+
+                string savepoint = "";
+                int hashcode = 0;
+
+                int randomnumber = r.Next(1, 999999999);
+
+                QRCoder.QRCodeGenerator QG = new QRCoder.QRCodeGenerator();
+                var mydata = QG.CreateQrCode(randomnumber.ToString(), QRCoder.QRCodeGenerator.ECCLevel.H);
+                var code = new QRCoder.QRCode(mydata);
+                picture.Image = code.GetGraphic(50);
+
+
+
+
+
+                Image image;
+                image = picture.Image;
+
+                SqlConnection con = new SqlConnection(conString);
+                con.Open();
+
+                bool duplicatecheck = hash_duplicate(randomnumber.ToString());
+                if (con.State == System.Data.ConnectionState.Open && duplicatecheck == true)
+                {
+                    string connection = "Update UserInfo set  hashcode = '" + randomnumber + "' where CustomerID = '" + Customerıd + "' and Password ='" + _Password + "'";
+
+                    SqlCommand cmd = new SqlCommand(connection, con);
+                    cmd.ExecuteNonQuery();
+
+                }
+                else
+                {
+                    CreateQRCode_Click(sender, e);
+                }
+
+
+
+                if (image != null)
+                {
+                    image.Save("C:/Users/muzo6/OneDrive/Masaüstü/QRCODES/" + hashcode + ".jpeg");
+                    savepoint = "C:/Users/muzo6/OneDrive/Masaüstü/QRCODES/" + hashcode + ".jpeg";
+
+                }
+                Email(savepoint);
+            }
+            else
+            {
+                MessageBox.Show("Zaten QR kodunuz Bulunmaktadır\n\n \t Mailinize bakınız");
+            }
+        }
+
+        private void LogOut_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            Form1 form = new Form1();
+            form.Visible = true;
         }
     }
 }

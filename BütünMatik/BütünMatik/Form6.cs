@@ -14,15 +14,19 @@ namespace BütünMatik
 {
     public partial class Para_Yatır : Form
     {
-
+        bool onayla = true;
         string password;
         string customerıd;
+        private string data;
         public Para_Yatır(String _customerid,String _password)
         {
 
             InitializeComponent();
             customerıd = _customerid;
             password = _password;
+
+            
+
 
         }
 
@@ -33,23 +37,68 @@ namespace BütünMatik
         private void button2_Click(object sender, EventArgs e)
         {
 
-            serialPort1.Write("1");
+            //serialPort1.Write("1");
 
-            bakiye = bakiye + 10;
+            try
+            {
+                serialPort1.PortName = "COM5";
+                serialPort1.BaudRate = 9600;
+                serialPort1.Open();
 
-            label3.Text = bakiye.ToString();
+            }
+            catch
+            {
 
-            string newbakiye = getBalance();
-            int newbakiyeint = Int32.Parse(newbakiye);
-            label4.Text = (newbakiyeint+bakiye).ToString();
+            }
+            /*
+            for (int i = 0; i < 100; i++)
+            {
+                string para = serialPort1.ReadLine();
+                int paraint = Int32.Parse(para);
+                System.Diagnostics.Debug.WriteLine(paraint.ToString());
+                if (paraint < 500)
+                {
+                    bakiye = bakiye + 10;
+
+                    label3.Text = bakiye.ToString();
+
+                    string newbakiye = getBalance();
+                    int newbakiyeint = Int32.Parse(newbakiye);
+                    label4.Text = (newbakiyeint + bakiye).ToString();
+                }
+                
+            }*/
+
 
         }
 
         private void Para_Yatır_Load(object sender, EventArgs e)
         {
-            serialPort1.PortName = "COM5";
-            serialPort1.BaudRate = 9600;
-            serialPort1.Open();
+    
+            serialPort1.DataReceived += new SerialDataReceivedEventHandler(SerialPort1_DataRecieved);
+                     
+        }
+
+        private void SerialPort1_DataRecieved(object sender, SerialDataReceivedEventArgs e)
+        {
+            data = serialPort1.ReadLine();
+            this.Invoke(new EventHandler(displayData_event));
+        }
+
+        private void displayData_event(object sender, EventArgs e)
+        {
+            int paraint = Int32.Parse(data);
+
+            if (paraint < 500)
+            {
+                bakiye = bakiye + 10;
+
+                label3.Text = bakiye.ToString();
+
+                string newbakiye = getBalance();
+                int newbakiyeint = Int32.Parse(newbakiye);
+                label4.Text = (newbakiyeint + bakiye).ToString();
+            }
         }
 
         private void Para_Yatır_FormClosing(object sender, FormClosingEventArgs e)
@@ -62,7 +111,8 @@ namespace BütünMatik
 
         private void kapa_Click(object sender, EventArgs e)
         {
-            serialPort1.Write("0");
+            //serialPort1.Write("0");
+            serialPort1.Close();
         }
 
         private int find_id()
@@ -117,6 +167,7 @@ namespace BütünMatik
 
         private void button1_Click(object sender, EventArgs e)
         {
+            onayla = false;
             int id = find_id();
 
             SqlConnection con = new SqlConnection(conString);
@@ -134,5 +185,7 @@ namespace BütünMatik
 
             MessageBox.Show("para Bakiyenize Eklenmiştir");
         }
+
+        
     }
 }

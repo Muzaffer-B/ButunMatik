@@ -46,7 +46,9 @@ namespace BütünMatik
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(590, 179);
@@ -76,7 +78,9 @@ namespace BütünMatik
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.BackColor = System.Drawing.Color.White;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label1);
             this.panel2.Location = new System.Drawing.Point(65, 179);
@@ -106,6 +110,7 @@ namespace BütünMatik
             // 
             // button1
             // 
+            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.Location = new System.Drawing.Point(398, 461);
             this.button1.Name = "button1";
@@ -117,6 +122,7 @@ namespace BütünMatik
             // 
             // button2
             // 
+            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.Location = new System.Drawing.Point(101, 57);
             this.button2.Name = "button2";
@@ -128,6 +134,7 @@ namespace BütünMatik
             // 
             // kapa
             // 
+            this.kapa.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.kapa.Location = new System.Drawing.Point(268, 57);
             this.kapa.Name = "kapa";
             this.kapa.Size = new System.Drawing.Size(99, 38);
@@ -140,6 +147,7 @@ namespace BütünMatik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(1058, 684);
             this.Controls.Add(this.kapa);
             this.Controls.Add(this.button2);
@@ -147,7 +155,7 @@ namespace BütünMatik
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "Para_Yatır";
-            this.Text = "Form6";
+            this.Text = "Para Yatır";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Para_Yatır_FormClosing);
             this.Load += new System.EventHandler(this.Para_Yatır_Load);
             this.panel1.ResumeLayout(false);

@@ -29,146 +29,30 @@ namespace BütünMatik
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.kupon = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label5 = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KullanıcıArayüz));
             this.qrcodebutton = new System.Windows.Forms.Button();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.CreateQRCode = new System.Windows.Forms.Button();
+            this.Scan = new System.Windows.Forms.Button();
+            this.ParaYatır = new System.Windows.Forms.Button();
+            this.couponal = new System.Windows.Forms.Button();
+            this.coupon = new System.Windows.Forms.Button();
+            this.Bakiye = new System.Windows.Forms.Button();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lbltitle = new System.Windows.Forms.Label();
+            this.PanelDesktop = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LogOut = new System.Windows.Forms.Button();
+            this.panel6.SuspendLayout();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.PanelDesktop.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(125, 88);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(237, 67);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(313, 150);
-            this.panel1.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(115, 27);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(77, 25);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Bakiye";
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
-            this.panel2.Controls.Add(this.kupon);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(697, 67);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(317, 150);
-            this.panel2.TabIndex = 3;
-            this.panel2.Click += new System.EventHandler(this.kuponlarım);
-            // 
-            // kupon
-            // 
-            this.kupon.AutoSize = true;
-            this.kupon.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.kupon.Location = new System.Drawing.Point(79, 103);
-            this.kupon.Name = "kupon";
-            this.kupon.Size = new System.Drawing.Size(51, 20);
-            this.kupon.TabIndex = 1;
-            this.kupon.Text = "label6";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(100, 27);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 25);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Kuponlarım";
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.IndianRed;
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(237, 344);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(313, 144);
-            this.panel3.TabIndex = 4;
-            this.panel3.Click += new System.EventHandler(this.kupon_al);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(102, 62);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 25);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Kupon Al";
-            // 
-            // panel4
-            // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(697, 344);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(317, 144);
-            this.panel4.TabIndex = 5;
-            this.panel4.Click += new System.EventHandler(this.Para_Yatır);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(100, 62);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(108, 25);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Para Yatır";
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(500, 554);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(298, 145);
-            this.panel5.TabIndex = 6;
-            this.panel5.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseClick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(87, 59);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(130, 25);
-            this.label6.TabIndex = 0;
-            this.label6.Text = "Kupon Tarat";
             // 
             // qrcodebutton
             // 
@@ -178,51 +62,268 @@ namespace BütünMatik
             this.qrcodebutton.TabIndex = 7;
             this.qrcodebutton.Text = "QR Kod Yarat";
             this.qrcodebutton.UseVisualStyleBackColor = true;
-            this.qrcodebutton.Click += new System.EventHandler(this.qrcodebutton_Click);
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.MidnightBlue;
+            this.panel6.Controls.Add(this.CreateQRCode);
+            this.panel6.Controls.Add(this.Scan);
+            this.panel6.Controls.Add(this.ParaYatır);
+            this.panel6.Controls.Add(this.couponal);
+            this.panel6.Controls.Add(this.coupon);
+            this.panel6.Controls.Add(this.Bakiye);
+            this.panel6.Controls.Add(this.panel7);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel6.Location = new System.Drawing.Point(0, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 805);
+            this.panel6.TabIndex = 8;
+            // 
+            // CreateQRCode
+            // 
+            this.CreateQRCode.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.CreateQRCode.FlatAppearance.BorderSize = 0;
+            this.CreateQRCode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.CreateQRCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CreateQRCode.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.CreateQRCode.Image = ((System.Drawing.Image)(resources.GetObject("CreateQRCode.Image")));
+            this.CreateQRCode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.CreateQRCode.Location = new System.Drawing.Point(0, 730);
+            this.CreateQRCode.Name = "CreateQRCode";
+            this.CreateQRCode.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.CreateQRCode.Size = new System.Drawing.Size(200, 75);
+            this.CreateQRCode.TabIndex = 6;
+            this.CreateQRCode.Text = "QR Yarat";
+            this.CreateQRCode.UseVisualStyleBackColor = true;
+            this.CreateQRCode.Click += new System.EventHandler(this.CreateQRCode_Click);
+            // 
+            // Scan
+            // 
+            this.Scan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Scan.FlatAppearance.BorderSize = 0;
+            this.Scan.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Scan.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Scan.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Scan.Image = ((System.Drawing.Image)(resources.GetObject("Scan.Image")));
+            this.Scan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Scan.Location = new System.Drawing.Point(0, 400);
+            this.Scan.Name = "Scan";
+            this.Scan.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.Scan.Size = new System.Drawing.Size(200, 75);
+            this.Scan.TabIndex = 5;
+            this.Scan.Text = "Tarat";
+            this.Scan.UseVisualStyleBackColor = true;
+            this.Scan.Click += new System.EventHandler(this.Scan_Click);
+            // 
+            // ParaYatır
+            // 
+            this.ParaYatır.Dock = System.Windows.Forms.DockStyle.Top;
+            this.ParaYatır.FlatAppearance.BorderSize = 0;
+            this.ParaYatır.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ParaYatır.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ParaYatır.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.ParaYatır.Image = ((System.Drawing.Image)(resources.GetObject("ParaYatır.Image")));
+            this.ParaYatır.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ParaYatır.Location = new System.Drawing.Point(0, 325);
+            this.ParaYatır.Name = "ParaYatır";
+            this.ParaYatır.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.ParaYatır.Size = new System.Drawing.Size(200, 75);
+            this.ParaYatır.TabIndex = 4;
+            this.ParaYatır.Text = "Para Yatır";
+            this.ParaYatır.UseVisualStyleBackColor = true;
+            this.ParaYatır.Click += new System.EventHandler(this.ParaYatır_Click);
+            // 
+            // couponal
+            // 
+            this.couponal.Dock = System.Windows.Forms.DockStyle.Top;
+            this.couponal.FlatAppearance.BorderSize = 0;
+            this.couponal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.couponal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.couponal.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.couponal.Image = ((System.Drawing.Image)(resources.GetObject("couponal.Image")));
+            this.couponal.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.couponal.Location = new System.Drawing.Point(0, 250);
+            this.couponal.Name = "couponal";
+            this.couponal.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.couponal.Size = new System.Drawing.Size(200, 75);
+            this.couponal.TabIndex = 3;
+            this.couponal.Text = "Kupon Al";
+            this.couponal.UseVisualStyleBackColor = true;
+            this.couponal.Click += new System.EventHandler(this.couponal_Click);
+            // 
+            // coupon
+            // 
+            this.coupon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.coupon.FlatAppearance.BorderSize = 0;
+            this.coupon.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.coupon.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.coupon.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.coupon.Image = ((System.Drawing.Image)(resources.GetObject("coupon.Image")));
+            this.coupon.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.coupon.Location = new System.Drawing.Point(0, 175);
+            this.coupon.Name = "coupon";
+            this.coupon.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.coupon.Size = new System.Drawing.Size(200, 75);
+            this.coupon.TabIndex = 2;
+            this.coupon.Text = "Kuponlarım";
+            this.coupon.UseVisualStyleBackColor = true;
+            this.coupon.Click += new System.EventHandler(this.coupon_Click);
+            // 
+            // Bakiye
+            // 
+            this.Bakiye.Dock = System.Windows.Forms.DockStyle.Top;
+            this.Bakiye.FlatAppearance.BorderSize = 0;
+            this.Bakiye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Bakiye.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Bakiye.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.Bakiye.Image = ((System.Drawing.Image)(resources.GetObject("Bakiye.Image")));
+            this.Bakiye.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Bakiye.Location = new System.Drawing.Point(0, 100);
+            this.Bakiye.Name = "Bakiye";
+            this.Bakiye.Padding = new System.Windows.Forms.Padding(11, 0, 0, 0);
+            this.Bakiye.Size = new System.Drawing.Size(200, 75);
+            this.Bakiye.TabIndex = 1;
+            this.Bakiye.Text = "Bakiye";
+            this.Bakiye.UseVisualStyleBackColor = true;
+            this.Bakiye.Click += new System.EventHandler(this.Bakiye_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.Navy;
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(0, 0);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(200, 100);
+            this.panel7.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.BackColor = System.Drawing.Color.Navy;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label7.Location = new System.Drawing.Point(32, 39);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(131, 29);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "BütünMatik";
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.DarkBlue;
+            this.panel8.Controls.Add(this.LogOut);
+            this.panel8.Controls.Add(this.lbltitle);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(200, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1342, 100);
+            this.panel8.TabIndex = 9;
+            // 
+            // lbltitle
+            // 
+            this.lbltitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lbltitle.AutoSize = true;
+            this.lbltitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lbltitle.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lbltitle.Location = new System.Drawing.Point(573, 30);
+            this.lbltitle.Name = "lbltitle";
+            this.lbltitle.Size = new System.Drawing.Size(176, 39);
+            this.lbltitle.TabIndex = 0;
+            this.lbltitle.Text = "Ana Sayfa";
+            // 
+            // PanelDesktop
+            // 
+            this.PanelDesktop.Controls.Add(this.panel1);
+            this.PanelDesktop.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelDesktop.Location = new System.Drawing.Point(200, 100);
+            this.PanelDesktop.Name = "PanelDesktop";
+            this.PanelDesktop.Size = new System.Drawing.Size(1342, 705);
+            this.PanelDesktop.TabIndex = 10;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Location = new System.Drawing.Point(78, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(293, 142);
+            this.panel1.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(125, 87);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 20);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "label2";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(106, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(77, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Bakiye";
+            // 
+            // LogOut
+            // 
+            this.LogOut.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.LogOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LogOut.Location = new System.Drawing.Point(1220, 30);
+            this.LogOut.Name = "LogOut";
+            this.LogOut.Size = new System.Drawing.Size(110, 41);
+            this.LogOut.TabIndex = 1;
+            this.LogOut.Text = "Çıkış Yap";
+            this.LogOut.UseVisualStyleBackColor = true;
+            this.LogOut.Click += new System.EventHandler(this.LogOut_Click);
             // 
             // KullanıcıArayüz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LightSeaGreen;
-            this.ClientSize = new System.Drawing.Size(1299, 745);
+            this.ClientSize = new System.Drawing.Size(1542, 805);
+            this.Controls.Add(this.PanelDesktop);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.qrcodebutton);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.Name = "KullanıcıArayüz";
             this.Text = "Form3";
             this.Load += new System.EventHandler(this.KullanıcıArayüz_Load);
+            this.panel6.ResumeLayout(false);
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.PanelDesktop.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label kupon;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button qrcodebutton;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Button Bakiye;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Button Scan;
+        private System.Windows.Forms.Button ParaYatır;
+        private System.Windows.Forms.Button couponal;
+        private System.Windows.Forms.Button coupon;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label lbltitle;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Panel PanelDesktop;
+        private System.Windows.Forms.Button CreateQRCode;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button LogOut;
     }
 }

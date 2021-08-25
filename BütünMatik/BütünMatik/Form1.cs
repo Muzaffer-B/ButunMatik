@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO.Ports;
 using System.Data.SqlClient;
+using AForge.Video;
+using AForge.Video.DirectShow;
+using ZXing;
 
 namespace BütünMatik
 {
@@ -20,6 +23,9 @@ namespace BütünMatik
         }
 
 
+        FilterInfoCollection filtercollection;
+        VideoCaptureDevice captureDevice;
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -30,6 +36,7 @@ namespace BütünMatik
             button1.Visible = false;
             button2.Visible = false;
             label1.Visible = false;
+            this.ControlBox = false;
         }
         
         private void button1_Click(object sender, EventArgs e)
@@ -55,6 +62,11 @@ namespace BütünMatik
             //{
             //    serialPort1.Close();
             //}
+
+            if (captureDevice!= null &&  captureDevice.IsRunning)
+            {
+                captureDevice.Stop();
+            }
         }
        public  string conString = "Data Source=DESKTOP-5HDJ4IR;Initial Catalog=ButunMatik;Integrated Security=True";
 
@@ -74,9 +86,11 @@ namespace BütünMatik
                 if(con.State == System.Data.ConnectionState.Open && is_valid(kullanici_adi, şifre))
                 {
                     MessageBox.Show("Giriş Başarılı");
-
                     var Form3 = new KullanıcıArayüz(kullanici_adi,şifre);
                     Form3.Show();
+
+                    this.Visible = false;
+                    
                 }
                 else
                 {
@@ -116,6 +130,138 @@ namespace BütünMatik
 
         }
 
-        
+        private void button3_Click(object sender, EventArgs e)
+        {
+            pictureBox2.Visible = true;
+            pictureBox2.Image = null;
+            filtercollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            captureDevice = new VideoCaptureDevice(filtercollection[1].MonikerString);
+            captureDevice.NewFrame += CaptureDevice_NewFrame;
+            captureDevice.Start();
+            timer1.Start();
+
+        }
+
+        private void CaptureDevice_NewFrame(object sender, NewFrameEventArgs eventArgs)
+        {
+            pictureBox2.Image = (Bitmap)eventArgs.Frame.Clone();
+        }
+
+       
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            if (pictureBox2.Image != null)
+            {
+                BarcodeReader barcodereader = new BarcodeReader();
+                Result result = barcodereader.Decode((Bitmap)pictureBox2.Image);
+                if (result != null)
+                {
+                    string hash = result.ToString();
+                    string customerId = getcustomer(hash).Trim();
+                    string password = getpassword(hash).Trim();
+
+                    
+                    bool customerexist = customerExist(customerId, password);
+
+                    if(customerexist == true)
+                    {
+                        KullanıcıArayüz arayüz = new KullanıcıArayüz(customerId, password);
+                        pictureBox2.Visible = false;
+
+                        arayüz.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Kullanıcı Bulunamadı");
+                    }
+
+
+
+                    timer1.Stop();
+
+                    if (captureDevice.IsRunning)
+                        captureDevice.Stop();
+                }
+            }
+        }
+
+        private string getcustomer(string hash)
+        {
+            string customerID = "";
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            String SQL = "   select CustomerID from  UserInfo where hashcode ='" + hash +"'";
+
+            SqlCommand cmd = new SqlCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                customerID = reader.GetString(0);
+
+                return customerID;
+            }
+
+            return customerID;
+        }
+
+        private string getpassword(string hash)
+        {
+            string Password = "";
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            String SQL = "   select Password from  UserInfo where hashcode ='" + hash + "'";
+
+            SqlCommand cmd = new SqlCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                Password = reader.GetString(0);
+
+                return Password;
+            }
+
+            return Password;
+        }
+
+        private bool customerExist(string customerid,string pasword)
+        {
+
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            String SQL = "   select CustomerID,Password from  UserInfo where CustomerID = '"+customerid+"' and Password = '"+pasword+"' ";
+
+            SqlCommand cmd = new SqlCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string customerID = reader.GetString(0).Trim();
+                string Password = reader.GetString(1).Trim();
+
+                if (customerid == customerID && pasword == Password)
+                {
+                    return true;
+                }
+
+
+            }
+
+            return false;
+        }
     }
 }

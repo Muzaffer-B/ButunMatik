@@ -45,8 +45,8 @@ namespace BütünMatik
         private void Scan_Click(object sender, EventArgs e)
         {
 
-            
-            captureDevice = new VideoCaptureDevice(filtercollection[cboDevice.SelectedIndex].MonikerString);
+           // filtercollection = new FilterInfoCollection(FilterCategory.VideoInputDevice);
+            captureDevice = new VideoCaptureDevice(filtercollection[1].MonikerString);
             captureDevice.NewFrame += CaptureDevice_NewFrame;
             captureDevice.Start();
             timer1.Start();
@@ -59,10 +59,13 @@ namespace BütünMatik
 
         private void Form7_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (captureDevice.IsRunning)
+
+            
+            if (captureDevice!= null && captureDevice.IsRunning)
             {
                 captureDevice.Stop();
             }
+
         }
 
         private void timer1_Tick(object sender, EventArgs e)

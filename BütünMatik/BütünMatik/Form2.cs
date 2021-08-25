@@ -17,6 +17,7 @@ namespace BütünMatik
         {
             InitializeComponent();
         }
+        string conString = "Data Source=DESKTOP-5HDJ4IR;Initial Catalog=ButunMatik;Integrated Security=True";
 
         private void Uye_Ol_Click(object sender, EventArgs e)
         {
@@ -27,14 +28,16 @@ namespace BütünMatik
             string password = textBox5.Text;
             string mail = textBox6.Text;
 
-            string conString = "Data Source=DESKTOP-5HDJ4IR;Initial Catalog=ButunMatik;Integrated Security=True";
 
             if (name != null && surname != null && number != null && password != null && kullanıcıadı != null && mail != null)
             {
                 SqlConnection con = new SqlConnection(conString);
                 con.Open();
 
-                if (con.State == System.Data.ConnectionState.Open)
+
+                bool mail_Duplicate = mail_duplicate(mail);
+                bool kullanıcı_Duplicate = kullanıcıadı_duplicate(kullanıcıadı);
+                if (con.State == System.Data.ConnectionState.Open && mail_Duplicate && kullanıcı_Duplicate)
                 {
                     string connection = "insert into UserInfo(name,surname,number,CustomerID,Password,mail) values('"+name+"','"+surname+"','"+number+"','"+kullanıcıadı+"','"+password+"','"+mail+"')";
                     string useractivity = "insert into UserActivity(name,surname,bakiye,kupon) values('" + name + "','" + surname + "','" + 0 + "','" + 0 + "')";
@@ -43,14 +46,86 @@ namespace BütünMatik
                     cmd.ExecuteNonQuery();
                     usercmd.ExecuteNonQuery();
                     MessageBox.Show("Kayıt Olundu");
+                    this.Close();
+                }
+                if(mail_Duplicate == false && kullanıcı_Duplicate == true)
+                {
+                    MessageBox.Show("Mail Zaten Sisteme Kayıtlı");
+                }
+                if (mail_Duplicate == true && kullanıcı_Duplicate == false)
+                {
+                    MessageBox.Show("Kullanıcı Adı Zaten Sisteme Kayıtlı");
+                }
+                if (mail_Duplicate == false && kullanıcı_Duplicate == false)
+                {
+                    MessageBox.Show("Kullanıcı Adı ve Mail Zaten Sisteme Kayıtlı");
                 }
 
-                this.Close();
+                
             }
             else
             {
                 MessageBox.Show("Lütfen Bilgileri Eksiksiz Doldurunuz");
             }
+        }
+
+
+        private bool mail_duplicate(string mail)
+        {
+
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            String SQL = "   select mail from  UserInfo ";
+
+            SqlCommand cmd = new SqlCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string x = reader.GetString(0).Trim();
+
+                if (mail == x)
+                {
+                    return false;
+                }
+
+
+            }
+
+            return true;
+        }
+
+        private bool kullanıcıadı_duplicate(string kullanıcı)
+        {
+
+
+            SqlConnection con = new SqlConnection(conString);
+            con.Open();
+
+            String SQL = "   select CustomerID from  UserInfo ";
+
+            SqlCommand cmd = new SqlCommand(SQL, con);
+            cmd.ExecuteNonQuery();
+
+            SqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                string x = reader.GetString(0).Trim();
+
+                if (kullanıcı == x)
+                {
+                    return false;
+                }
+
+
+            }
+
+            return true;
         }
     }
 }

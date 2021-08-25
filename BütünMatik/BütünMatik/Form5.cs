@@ -162,11 +162,11 @@ namespace BütünMatik
 
         public  void Email(string htmlString, string savepoint,string subject)
         {
+
             string mail = find_mail();
 
             try
             {
-
 
                 MailMessage message = new MailMessage();
                 SmtpClient smtp = new SmtpClient();
@@ -190,7 +190,11 @@ namespace BütünMatik
                 smtp.Credentials = new NetworkCredential("butunmatik@gmail.com", "test-12345");
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
                 smtp.Send(message);
+               
                 MessageBox.Show("mail iletildi");
+                this.timer1.Stop();
+
+
 
             }
             catch (Exception)
@@ -201,10 +205,11 @@ namespace BütünMatik
 
         private void mail_gönder_Click(object sender, EventArgs e)
         {
-            
 
-            
-            for(int i = 0; i < dataGridView1.Rows.Count; i++)
+           
+
+
+            for (int i = 0; i < dataGridView1.Rows.Count; i++)
             {
                 bool isSelected = Convert.ToBoolean(dataGridView1.Rows[i].Cells[0].Value);
                 string savepoint = "";
@@ -233,6 +238,8 @@ namespace BütünMatik
                          savepoint = "C:/Users/muzo6/OneDrive/Masaüstü/kuponlar/" + id +"-"+ ürünkodu + ".jpeg";
 
                     }
+
+                    this.timer1.Start();
 
                     string htmlString = getHtml(dataGridView1); //here you will be getting an html string  
                     Email(htmlString, savepoint,subject); //Pass html string to Email function.
@@ -319,5 +326,9 @@ namespace BütünMatik
 
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            this.progressBar1.Increment(3);
+        }
     }
 }
